@@ -1,0 +1,993 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+body {
+    position: relative;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1em;
+    color: #292929;
+}
+
+ul {
+    list-style: none;
+}
+
+a,
+input,
+button {
+    text-decoration: none;
+    outline: none;
+    border: none;
+}
+
+a,
+input[type="submit"],
+button {
+    cursor: pointer;
+}
+
+button {
+    display: inline-flex;
+    align-items: flex-end;
+}
+
+a,
+a:active,
+a:hover {
+    text-decoration: none;
+    outline: none;
+    color: inherit;
+}
+
+.container {
+    width: 100%;
+    padding: 0 15px;
+    margin: 0 auto;
+}
+
+/*grid styles*/
+.flex {
+    display: -moz-box;
+    display: -webkit-box;
+    display: box;
+    display: flexbox;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+}
+
+.row {
+    display: -moz-box;
+    display: -webkit-box;
+    display: box;
+    display: flexbox;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    box-orient: horizontal;
+    flex-direction: row;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+
+.row.justify-content-center,
+.flex.justify-content-center {
+    justify-content: center;
+}
+
+@media screen and (min-width: 576px) {
+    .col-xs-6 {
+        -ms-flex: 0 0 50%;
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .col-md-3 {
+        -ms-flex: 0 0 25%;
+        flex: 0 0 25%;
+        max-width: 25%;
+    }
+
+    .col-md-4 {
+        -ms-flex: 0 0 33.333333%;
+        flex: 0 0 33.333333%;
+        max-width: 33.333333%;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .col-lg-5 {
+        max-width: 41.667%;
+        -ms-flex: 0 0 41.667%;
+        flex: 0 0 41.667%;
+    }
+}
+
+@media screen and (min-width: 1200px) {}
+
+/*dimensions*/
+.py-100 {
+    padding: 100px 0;
+}
+
+.py-50 {
+    padding: 50px 0;
+}
+
+/*Navigation*/
+#header {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+    background-color: transparent;
+    height: auto;
+    max-height: 150px;
+    padding: 0em 0 0em;
+    color: rgba(20, 55, 7, 0.765);
+    font-family: 'Edu TAS Beginner', cursive;
+ 
+}
+
+#nav_menu.row {
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    -ms-flex-pack: space-between;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+
+.nav-brand>h1 {
+    font-family: 'Edu TAS Beginner', cursive;
+    font-size: 2em;
+    font-weight: 300;
+    color: #000000;
+}
+.nav-brand1>h1 {
+    font-family: 'Fredoka One', cursive;
+    font-size: 2em;
+    font-weight: 400;
+    color: #000000;
+}
+
+.nav_menu ul li {
+    font-size: 20px;
+    display: inline-block;
+    padding: 0 1em;
+    cursor: pointer;
+}
+
+.nav_menu ul li a {
+    position: relative;
+    color: #23110c;
+    transition: all 0.3s linear;
+}
+
+.nav_menu ul li:hover a {
+    color: rgb(0, 0, 0);
+}
+
+.nav_menu ul li a[class="active"] {
+    color: rgb(0, 0, 0);
+}
+
+.nav_menu ul li a[class="active"]::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: #000000;
+    bottom: -0.375em;
+    border-radius: 3px;
+}
+.nav_menu {
+
+    position: fixed;
+    width: 100%;
+    z-index: 2;
+    padding: 15px 0;
+    transition: all 0.3s ease;
+  }
+  
+  .nav_menu.sticky {
+    background: #edd1ad;
+    padding: 10px 0;
+    box-shadow: 0px 3px 5px 0px #edd1ad(0, 0, 0, 0.1);
+    font-family: 'Fredoka One', cursive;
+  }
+  
+  .nav_menu .content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .nav_menu .top-logo {
+    display: flex;
+  }
+  
+  .nav_menu .top-logo a {
+    color: rgb(255, 255, 255);
+    font-size: 30px;
+    font-weight: 500;
+    text-decoration: none;
+  }
+  
+  .nav_menu .menu-list {
+    display: inline-flex;
+  }
+/*Mobile Navigation*/
+#mobile-toggle-btn {
+    position: absolute;
+    right: 10px;
+    cursor: pointer;
+    display: none;
+}
+
+#mobile-toggle {
+    display: none;
+}
+
+#mobile-toggle:checked~nav ul {
+    top: 100px;
+    opacity: 1;
+}
+
+.hamburger {
+    box-sizing: content-box;
+    position: relative;
+    width: 35px;
+    height: 35px;
+}
+
+.hamburger span {
+    position: absolute;
+    transform: translateY(-50%);
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: white;
+    transform-origin: center;
+    transition: all 0.2s linear;
+}
+
+.hamburger span:nth-child(1) {
+    top: 10%;
+}
+
+.hamburger span:nth-child(2) {
+    top: 50%;
+}
+
+.hamburger span:nth-child(3) {
+    top: 90%;
+}
+
+#mobile-toggle:checked~.hamburger span {
+    top: 50%;
+}
+
+#mobile-toggle:checked~.hamburger span:nth-child(1) {
+    transform: rotate(45deg);
+}
+
+#mobile-toggle:checked~.hamburger span:nth-child(2),
+#mobile-toggle:checked~.hamburger span:nth-child(3) {
+    transform: rotate(-45deg);
+}
+
+/*Banner*/
+#banner {
+    width: 100%;
+    min-height: 75vh;
+    background-color: black;
+    background-image: url('../images/Dog.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 9.375em 0;
+}
+
+#banner>.container {
+    align-self: center;
+}
+
+#banner>.container>div {
+    max-width: 400px;
+}
+
+#banner>.container>div *:not(:last-child) {
+    padding-bottom: 2rem;
+}
+
+#banner>.container>div>h1 {
+    font-family: 'Edu TAS Beginner', cursive;
+    font-size: 2.75em;
+    color: white;
+    font-weight: 300;
+    letter-spacing: 2px;
+}
+
+#banner>.container>div>p {
+    color: #cdcdcd;
+    line-height: 1.5em;
+}
+
+#banner>.container>div>a {
+    font-family: 'Edu TAS Beginner', cursive;
+    font-size: 1em;
+    background-color: #edd1ad;
+    color: #292929;
+    padding: 1em 2em;
+    border-radius: 3.125em;
+}
+
+/*About section*/
+section#about .row>div {
+    padding-top: 20px;
+}
+
+.image_container img {
+    max-width: 100%;
+    height: auto;
+}
+
+div.about_text {
+    text-align: left;
+    color: #333;
+}
+
+div.about_text h2 {
+    font-family: 'Edu TAS Beginner', cursive;
+    line-height: 1.2;
+    font-size: 2.5em;
+    font-weight: 300;
+    letter-spacing: 2px;
+}
+
+div.about_text p {
+    margin-top: 30px;
+    line-height: 1.5;
+    font-weight: 300;
+}
+
+/*pets*/
+#pets {
+    font-family: 'Edu TAS Beginner', cursive;
+    background: rgba(0, 0, 0, 5%);
+    color: #292929;
+}
+
+#pets * {
+    text-align: center;
+}
+
+#pets h2 {
+    line-height: 1.2;
+    font-size: 2.5em;
+    font-weight: 300;
+    letter-spacing: 2px;
+    margin: 0 0.275em;
+}
+
+.slider_wrapper {
+    width: 100%;
+    padding: 2em 0;
+}
+
+.slider_nav {
+    padding-top: 1.5em;
+    display: none;
+}
+
+.slider_nav a {
+    display: inline-block;
+    height: 15px;
+    width: 15px;
+    margin: 0 0.3em;
+    background: rgba(0, 0, 0, 20%);
+    border-radius: 100%;
+    box-shadow: inset 3px 3px 8px rgba(0, 0, 0, 0.2);
+}
+
+.slider_nav a:hover {
+    background-color: #f3be7a;
+}
+
+.pets_slider {
+    display: flex;
+    justify-content: center;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+.slide {
+    min-width: 250px;
+    margin: 0 1em;
+    border-radius: 5px;
+    background: white;
+    padding: 1.5em;
+}
+
+.slide img {
+    width: 100%;
+    height: auto;
+}
+
+.slide p {
+    padding: 1rem 0;
+    font-size: 1.25rem;
+    letter-spacing: 1px;
+}
+
+.slide a {
+    display: inline-block;
+    font-size: 1.15rem;
+    padding: .5em 2em;
+    border: 2px solid #f3be7a;
+    border-radius: 1em;
+    text-transform: capitalize;
+    transition: all 0.1s linear
+}
+
+.slide a:hover {
+    background-color: #f3be7a;
+}
+
+.slider_wrapper>a {
+    font-size: 1.2em;
+    word-spacing: 2px;
+    white-space: nowrap;
+    display: inline-block;
+    margin-top: 50px;
+    padding: 0.75em 2.25rem;
+    background: #f3be7a;
+    border-radius: 1.2rem;
+    max-width: 250px;
+}
+
+/*help*/
+#help {
+    font-family: 'Edu TAS Beginner', cursive;
+    color: #292929;
+}
+
+#help * {
+    text-align: center;
+}
+
+#help h2 {
+    line-height: 1.2;
+    font-size: 2.5em;
+    font-weight: 300;
+    letter-spacing: 2px;
+    margin: 0 0.275em;
+}
+
+.help_service {
+    padding: 2.5em;
+    margin: 0.5em
+}
+
+.help_service p {
+    padding: 1rem 0;
+    font-size: 1.25rem;
+    letter-spacing: 1px
+}
+
+.help_service img {
+    max-width: 70px;
+    max-height: 70px;
+}
+
+/*Domation*/
+#donation {
+    font-family: 'Edu TAS Beginner', cursive;
+    background: rgba(0, 0, 0, 5%);
+    color: #292929;
+}
+
+.donation_text {
+    text-align: left;
+    color: #333;
+}
+
+.donation_text h2 {
+    font-family: 'Edu TAS Beginner', cursive;
+    line-height: 1.2;
+    font-size: 2.5em;
+    font-weight: 300;
+    letter-spacing: 2px;
+}
+
+.donation_text p {
+    font-size: 1.2em;
+    margin: 1.73em 0 0.25em 0;
+    word-spacing: 2px;
+}
+
+.donation_text h6 {
+    color: rgba(0, 0, 0, 30%);
+    margin-top: 30px;
+    font-family: 'Edu TAS Beginner', cursive;
+    font-weight: 300;
+    font-style: italic;
+    line-height: 1.5em;
+    margin-right: 20%;
+}
+
+.card_number_container {
+    width: 75%;
+}
+
+button.card_number {
+    padding: 0.5em;
+    font-size: 1.1em;
+    word-spacing: 2px;
+    white-space: nowrap;
+    background: #f3be7a;
+    border-radius: 5px;
+    font-family: 'Fredoka One', cursive;
+    display: inline-flex;
+    justify-content: space-evenly;
+}
+
+.card_number img {
+    max-width: 20px;
+    max-height: 20px;
+    margin-right: 1em;
+    vertical-align: middle;
+}
+
+/*footer*/
+#footer {
+    font-family: 'Edu TAS Beginner', cursive;
+    background-color: brown;
+    background-image: url('../images/Background_footer1.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: #edd1ad;
+}
+
+.buttons {
+    margin-top: 50px;
+    text-align: center;
+    border-radius: 30px;
+  }
+  
+  .blob-btn {
+    z-index: 1;
+    position: relative;
+    padding: 20px 46px;
+    margin-bottom: 30px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #edd1ad;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: transparent;
+    outline: none;
+    border: none;
+    transition: color 0.5s;
+    cursor: pointer;
+    border-radius: 30px;
+  }
+  
+  .blob-btn:before {
+    content: "";
+    z-index: 1;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    border: 2px solid #edd1ad;
+    border-radius: 35px;
+  }
+  
+  .blob-btn:after {
+    content: "";
+    z-index: -2;
+    position: absolute;
+    left: 3px;
+    top: 3px;
+    width: 100%;
+    height: 100%;
+    transition: all 0.3s 0.2s;
+    border-radius: 30px;
+  }
+  
+  .blob-btn:hover {
+    color: #fff;
+    border-radius: 30px;
+  }
+  
+  .blob-btn:hover:after {
+    transition: all 0.3s;
+    left: 0;
+    top: 0;
+    border-radius: 30px;
+  }
+  
+  .blob-btn__inner {
+    z-index: -1;
+    overflow: hidden;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 30px;
+    background: rgb(0, 0, 0);
+  }
+  
+  .blob-btn__blobs {
+    position: relative;
+    display: block;
+    height: 100%;
+    filter: url('#goo');
+  }
+  
+  .blob-btn__blob {
+    position: absolute;
+    top: 2px;
+    width: 25%;
+    height: 100%;
+    background: #edd1ad;
+    border-radius: 100%;
+    transform: translate3d(0, 150%, 0) scale(1.7);
+    transition: transform 0.45s;
+  }
+  
+  .blob-btn__blob:nth-child(1) {
+    left: 0%;
+    transition-delay: 0s;
+  }
+  
+  .blob-btn__blob:nth-child(2) {
+    left: 30%;
+    transition-delay: 0.08s;
+  }
+  
+  .blob-btn__blob:nth-child(3) {
+    left: 60%;
+    transition-delay: 0.16s;
+  }
+  
+  .blob-btn__blob:nth-child(4) {
+    left: 90%;
+    transition-delay: 0.24s;
+  }
+  
+  .blob-btn:hover .blob-btn__blob {
+    transform: translateZ(0) scale(1.7);
+  }
+  
+  .py-50 {
+    background: url("images/background.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 5px 0px;
+    width: 100%;
+    text-align: center;
+    font-size: 20px;
+    flex-direction: column;
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+  
+  .hover-button {
+    display: inline-block;
+  }
+  
+  .hover {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 300px;
+    height: 75px;
+    background-color: #edd1ad;
+    border-radius: 99px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    overflow: hidden;
+  }
+  
+  .hover:before,
+  .hover:after {
+    position: absolute;
+    top: 0;
+    display: flex;
+    align-items: center;
+    width: 50%;
+    height: 100%;
+    transition: 0.25s linear;
+    z-index: 1;
+  }
+  
+  .hover:before {
+  
+    content: '';
+    left: 0;
+    justify-content: flex-end;
+    background-color: #edd1ad;
+  }
+  
+  .hover:after {
+    content: '';
+    right: 0;
+    justify-content: flex-start;
+    background-color: #edd1ad;
+  }
+  
+  .hover:hover {
+    background-color: #edd1ad;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  }
+  
+  .hover:hover span {
+    opacity: 0;
+    z-index: -3;
+  }
+  
+  .hover:hover:before {
+    opacity: 0.5;
+    transform: translateY(-100%);
+  }
+  
+  .hover:hover:after {
+    opacity: 0.5;
+    transform: translateY(100%);
+  }
+  
+  .hover span {
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    color: rgb(0, 0, 0);
+    font-family: 'Edu TAS Beginner', cursive;
+    font-size: 24px;
+    font-weight: 700;
+    opacity: 1;
+    transition: opacity 0.25s;
+    z-index: 2;
+  }
+  .hover .footer-link {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 25%;
+    height: 100%;
+    color: rgb(0, 0, 0);
+    font-size: 20px;
+    text-decoration: none;
+    transition: 0.25s;
+  }
+  
+  .hover .footer-link i {
+    text-shadow: 1px 1px rgba(70, 98, 127, 0.7);
+    transform: scale(1);
+  }
+  
+  .hover .footer-link:hover {
+    background-color: rgba(245, 245, 245, 0.1);
+  }
+  
+  .hover .footer-link:hover i {
+    animation: bounce 0.4s linear;
+  }
+  
+  @keyframes bounce {
+    40% {
+      transform: scale(1.4);
+    }
+  
+    60% {
+      transform: scale(0.8);
+    }
+  
+    80% {
+      transform: scale(1.2);
+    }
+  
+    100% {
+      transform: scale(1);
+    }
+  }
+  
+  
+  
+  .fa {
+    padding: 10px;
+    width: 20px;
+    text-decoration: none;
+    margin: 10px 10px;
+  }
+  
+  .fa-linkedin {
+    background: #0829e0;
+    color: white;
+    width: 35px;
+    height: 40px;
+  }
+  
+  .fa-facebook {
+    background: #3b5998;
+    color: white;
+    width: 35px;
+    height: 40px;
+  }
+  
+  .fa-instagram {
+    width: 40px;
+    height: 40px;
+    background: #f09433;
+    background: -moz-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    background: -webkit-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f09433', endColorstr='#bc1888', GradientType=1);
+  }
+  
+  
+  .fa-whatsapp {
+    background: #00b489;
+    color: white;
+    width: 35px;
+    height: 40px;
+  }
+  
+  .fa-envelope {
+    background: #fff8f8ea;
+    color: rgb(255, 21, 5);
+    width: 40px;
+    height: 40px;
+  }
+  
+  .fa-github {
+    background: black;
+    color: white;
+    width: 35px;
+    height: 40px;
+  
+  }
+  
+  .fa-phone {
+    background: yellow;
+    color: black;
+    width: 35px;
+    height: 40px;
+  }
+  
+  .fa-map-marker {
+    background: red;
+    color: white;
+    width: 35px;
+    height: 40px;
+  }
+/*Responsiveness*/
+@media (min-width: 576px) {
+    .container {
+        max-width: 540px;
+    }
+}
+
+@media (min-width: 768px) {
+    .container {
+        max-width: 720px;
+    }
+
+    /*Navigation*/
+    .nav_menu ul li {
+        padding: 0 0.625em;
+    }
+}
+
+@media (min-width: 992px) {
+    .container {
+        max-width: 960px;
+    }
+
+    #footer .row div:first-child {
+        margin-right: 3em;
+    }
+}
+
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1140px;
+    }
+}
+
+@media (max-width: 768px) {
+    header#header {
+        padding: 1em 0;
+    }
+
+    #banner {
+        background-image: linear-gradient(146deg, #544532, #333);
+    }
+
+    /*Mobile Navigation*/
+    .nav_menu ul {
+        position: absolute;
+        top: -300px;
+        left: 0;
+        right: 0;
+        transition: all 0.6s ease-in-out;
+        background-color: white;
+        opacity: 0;
+    }
+
+    .nav_menu ul li {
+        position: relative;
+        text-align: center;
+        padding: 1rem;
+        display: block
+    }
+
+    .nav_menu ul li:not(:first-child)::after {
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        content: "";
+        height: 2px;
+        background-color: #333;
+    }
+
+    .nav_menu ul li a {
+        color: #292929;
+    }
+
+    .nav_menu ul li:hover a {
+        color: #eac99f;
+    }
+
+    .nav_menu ul li a[class="active"] {
+        color: #292929;
+    }
+
+    #mobile-toggle-btn {
+        display: block;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .pets_slider {
+        width: 250px;
+        max-width: 250px;
+        margin: 0 auto;
+    }
+
+    .slider_nav {
+        display: block;
+    }
+
+    .slide {
+        transform: translateX(calc(100% + 2em));
+        /*hack :( */
+    }
+}
+

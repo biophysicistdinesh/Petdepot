@@ -1,0 +1,284 @@
+*{
+    padding:0px;
+    margin:0px;
+}
+body {
+    font-family: "Poppins", sans-serif;
+    box-sizing: border-box;
+    font-size: 1rem;
+    font-weight: 400;
+}
+/*NAVBAR*/
+.navbar img {
+    width: 30px;
+    margin-left:30px;
+}
+.navbar-brand span {
+    font-size: 20px;
+    font-weight: 900;
+    display: block;
+}
+.navbar ul{
+    margin:auto;
+}
+.navbar ul li {
+    padding-right: 30px;
+}
+.navbar .call a {
+    padding-right: 10px;
+    text-decoration: none;
+    color: #434242;
+}
+
+/*SLIDER*/
+.slider {
+    background-image: url('images/hero.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    overflow: auto;
+    color: #fff;
+}
+.slider li {
+    width: 20px;
+    height: 20px;
+    border-radius: 100%;
+    opacity: 1;
+}
+.slider li:active {
+    background-color: #010106;
+}
+.slider .content {
+    width: 50%;
+    float: left;
+}
+.slider .layer {
+    width: 60%;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+.slider h2 {
+    font-size: 52px;
+    color: #434242;
+    font-weight: bold;
+    padding-bottom: 30px;
+}
+.slider span{
+    display:block;
+    color:#fff;
+}
+.slider .btn1 {
+    padding: 10px 45px;
+    background-color: #023b48;
+    border: 1px solid #023b48;
+    color: #fff;
+    margin-right: 10px;
+}
+.slider .btn1:hover {
+    background-color: transparent;
+    border: 1px solid black;
+    color: #023b48;
+}
+.slider .btn2 {
+    padding: 10px 45px;
+    background-color: #fff;
+    border: 1px solid #fff;
+    color: #023b48;
+}
+.slider .btn2:hover {
+    background-color: transparent;
+    border: 1px solid #fff;
+    color: #fff;
+}
+.slider .img {
+    width: 50%;
+    float: left;
+    padding:50px 20px;
+}
+.slider img{
+    width:100%;
+}
+
+
+/*ABOUT*/
+.about {
+    background-image: url(images/about-bg.png);
+    background-size:cover;
+    padding-bottom:50px;
+}
+.about .container {
+    width: 80%;
+    margin: auto;
+    overflow: auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+}
+.about .content{
+    float:left;
+    width:50%;
+    padding-bottom:30px;
+}
+.about span {
+    color: #21d7ff;
+}
+.about p {
+    margin: 25px 0;
+}
+.about .img {
+    float: left;
+    width: 50%;
+}
+.about img{
+    width:100%;
+}
+.about button {
+    padding: 10px 20px;
+    background-color: #023b48;
+    border: 1px solid #023b48;
+    color: #ffffff;
+}
+.about button:hover {
+    background-color: transparent;
+    border: 1px solid black;
+    color:black;
+}
+
+/*SERVICES*/
+.services h2 {
+    margin-left: 30%;
+    font-size: 2.1rem;
+}
+.services h2 span {
+    color: #21d7ff;
+}
+.services h6 {
+    font-weight: bold;
+    line-height: 1.2;
+}
+.services .img img {
+    margin-top:30px;
+    margin-bottom:10px;
+    padding:30px;
+    border-radius: 100%;
+    background-color: #18d3ff;
+}
+.services button {
+    padding: 12px 25px;
+    background-color: #023b48;
+    border: 1px solid #023b48;
+    color: #ffffff;
+    margin-top:40px;
+}
+.services button:hover {
+    background-color: transparent;
+    color: #023b48;
+}
+/*IMAGES*/
+.images {
+    background-color: #0dc3ff;
+}
+.images .test {
+    overflow: hidden;
+}
+.images img {
+    height: 100%;
+    transition: all 1s;
+}
+.images img:hover{
+    transform:scale(1.1 , 1.1);
+}
+@media(max-width:774px) {
+    .images img{
+        padding-bottom:10px;
+        width:100%;
+        
+    }
+}
+/*BUY*/
+.buy button {
+    padding: 12px 70px;
+    background-color: #023b48;
+    border: 1px solid #023b48;
+    color: #ffffff;
+    margin-top: 40px;
+}
+.buy button:hover {
+    background-color: transparent;
+    color: #023b48;
+}
+
+/*CLIENT*/
+.client span {
+    color: #21d7ff;
+}
+.client-container{
+   width:60%;
+   position:relative;
+}
+.client-container .img {
+    position:absolute;
+    left:-100px;
+}
+.client .content {
+    padding-left:50px;
+}
+
+@media(max-width:992px) and (min-width:774px) {
+    .client-container {
+        width: 50%;
+    }
+}
+
+/*Contact US*/
+.contact-us {
+    width: 40%;
+}
+
+.contact-us input {
+    border: none;
+    border-bottom: 2px solid white;
+}
+
+.contact-us input:focus {
+    outline: none;
+}
+
+.contact-us button {
+    width: 100%;
+    border: solid transparent;
+    border-radius: 10px;
+    background-color: #fff;
+}
+
+.contact-us button:hover {
+    background-color: transparent;
+    border: solid #fff;
+    color:#fff;
+}
+@media(max-width:992px) and (min-width:774px) {
+    .contact-us {
+        width: 80%;
+    }
+}
+@media(max-width:774px) {
+    .contact-us {
+        width: 90%;
+    }
+}
+/*logo*/
+.logo {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.logo i {
+    font-size: 40px;
+}
+@media(max-width:774px) {
+    .logo i {
+        display: block;
+        padding-bottom:30px;
+    }
+}
